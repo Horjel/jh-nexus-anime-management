@@ -1,8 +1,23 @@
 # JH Nexus Anime
 
-Aplicacion web de gestion para una tienda de productos de anime y manga, desarrollada con un enfoque clasico Java empresarial.
+Aplicacion web de gestion interna para una tienda de productos de anime y manga. El proyecto esta desarrollado con Java 8, Spring Boot, JSP, JPA/Hibernate y MySQL, con una arquitectura MVC clasica orientada a entorno academico y portfolio.
 
-## Stack
+![Dashboard principal](docs/img/03-dashboard.png)
+
+## Que resuelve
+
+La aplicacion permite gestionar la operativa basica de una tienda anime:
+
+- categorias de catalogo
+- productos y stock
+- clientes
+- pedidos con varias lineas
+- panel de usuarios internos
+- auditoria simple y bitacora administrativa
+
+No es una API REST. Es una aplicacion **Spring MVC + JSP** con renderizado server-side.
+
+## Stack tecnico
 
 - Java 8
 - Spring Boot 2.7.18
@@ -10,30 +25,21 @@ Aplicacion web de gestion para una tienda de productos de anime y manga, desarro
 - JPA / Hibernate
 - MySQL 8
 - Maven
+- Spring Security
 
-## Objetivo
+## Funcionalidades principales
 
-El proyecto parte del documento `EVO.txt` y cubre la base de una aplicacion MVC por capas:
-
-- gestion de categorias
-- gestion de productos
-- gestion de clientes
-- gestion de pedidos
-- control de stock
-- persistencia relacional
-
-Sobre esa base se han anadido mejoras de evolucion:
-
-- branding `JH Nexus Anime`
-- dashboard de inicio
-- filtros, ordenacion y paginacion
-- fichas de detalle
+- CRUD de categorias, productos, clientes y pedidos
+- control de stock con validacion de disponibilidad
+- pedidos con multiples lineas
+- busqueda, ordenacion y paginacion
 - exportacion CSV
-- login y roles
-- panel de usuarios
+- dashboard con metricas y resumen comercial
+- autenticacion y autorizacion por roles `ADMIN`, `DELEGADO` y `USER`
+- gestion de usuarios internos
 - auditoria simple y bitacora administrativa
 
-## Estructura principal
+## Arquitectura
 
 ```text
 src/main/java/com/otakucenter
@@ -41,76 +47,92 @@ src/main/java/com/otakucenter
 |- controller
 |- dao
 |  \- impl
+|- exception
 |- model
 |- service
 |  \- impl
+\- util
 
 src/main/webapp/WEB-INF/views
 |- categorias
 |- clientes
 |- common
 |- cuenta
+|- error
 |- pedidos
 |- productos
 \- usuarios
 ```
 
-## Funcionalidades principales
+## Ejecucion local
 
-- CRUD de categorias, productos, clientes y pedidos
-- control de stock
-- pedidos con varias lineas
-- busqueda, ordenacion y paginacion
-- exportacion CSV
-- dashboard con resumen de actividad
-- autenticacion con roles `ADMIN`, `DELEGADO` y `USER`
-- gestion de usuarios
-- auditoria simple y bitacora administrativa
+### Requisitos
 
-## Como ejecutar
+- Java 8
+- Maven
+- MySQL 8
 
-1. Abre una terminal en la carpeta del proyecto.
-2. Ejecuta:
+### Pasos
+
+1. Arrancar MySQL.
+2. Situarse en la carpeta del proyecto.
+3. Ejecutar:
 
 ```powershell
 mvn spring-boot:run
 ```
 
-3. Abre en el navegador:
+4. Abrir:
 
 - `http://localhost:8080/login`
 
-## Configuracion basica
+## Configuracion
 
-Archivo principal:
+El proyecto usa perfiles:
 
-- `src/main/resources/application.properties`
+- `application.properties`: configuracion comun
+- `application-dev.properties`: entorno local de desarrollo
+- `application-prod.properties`: configuracion orientada a despliegue
 
-Parametros importantes:
+Base de datos por defecto en local:
 
-- base de datos MySQL `otaku_center`
-- vistas JSP en `src/main/webapp/WEB-INF/views`
-- usuarios del proyecto en `USUARIOS_PROYECTO.txt`
+- esquema: `otaku_center`
 
-## Usuarios base de la demo
+## Usuarios demo
 
-El proyecto arranca leyendo el archivo `USUARIOS_PROYECTO.txt`.
+El fichero [USUARIOS_PROYECTO.txt](USUARIOS_PROYECTO.txt) contiene cuentas **solo para desarrollo y demostracion local**. No representan usuarios reales.
 
-Estado base recomendado:
+Estado actual del ejemplo:
 
 - `admin` / `*****` / `ADMIN` / activo
-- `Sergio Delegado` / `Sergio2026A` / `DELEGADO` / bloqueado
+- `Sergio Delegado` / `Alpargata96` / `DELEGADO` / bloqueado
 - `Joyux` / `Joyux2026A` / `USER` / activo
 
-## Documentacion util
+## Documentacion del proyecto
 
-- `EVO.txt`
-- `GUIA_RAPIDA.txt`
-- `RESUMEN_VERSIONES.txt`
-- `GUIA_PRESENTACION.txt`
+- [MEMORIA_PROYECTO.md](docs/MEMORIA_PROYECTO.md)
+- [DOCUMENTACION.md](docs/DOCUMENTACION.md)
+- [GUIA_RAPIDA.txt](GUIA_RAPIDA.txt)
+- [GUIA_PRESENTACION.txt](GUIA_PRESENTACION.txt)
+- [RESUMEN_VERSIONES.txt](RESUMEN_VERSIONES.txt)
+- [EVO.txt](EVO.txt)
 
-## Versionado funcional
+## Capturas
 
-- `v1.0`: base MVC y CRUDs
-- `v1.1`: mejoras de interfaz y explotacion
-- `v2.0`: seguridad, usuarios y auditoria
+- Login: ![Login](docs/img/01-login.png)
+- Panel de usuarios: ![Usuarios](docs/img/13-usuarios-panel.png)
+- Pedidos: ![Pedidos](docs/img/11-pedidos-lista.png)
+
+## Evolucion funcional
+
+- `v1.0`: base MVC, CRUDs y persistencia
+- `v1.1`: dashboard, filtros, ordenacion, paginacion y exportacion
+- `v2.0`: seguridad, roles, gestion de usuarios, auditoria y bitacora
+
+## Estado actual
+
+El proyecto esta en un punto funcional y presentable de portfolio. Mantiene algunas deudas tecnicas deliberadas para no sobredimensionar el alcance:
+
+- compatibilidad legacy en parte del modelo de pedidos
+- ausencia de migraciones con Flyway/Liquibase
+- cobertura de tests todavia inicial
