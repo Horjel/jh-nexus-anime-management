@@ -1,0 +1,46 @@
+JH NEXUS ANIME - GUIA DE PRESENTACION
+
+1. Como explicaria el proyecto
+- Es una aplicacion web de gestion para una tienda anime.
+- Se ha desarrollado con Java 8, Spring Boot 2.7, JSP, JPA y MySQL.
+- Sigue arquitectura MVC por capas.
+
+2. Que cubre el documento evolutivo
+- Categorias
+- Productos
+- Clientes
+- Pedidos
+- Stock
+- Interfaz JSP
+- Persistencia relacional
+
+3. Que mejoras se han anadido
+- Dashboard
+- Filtros, ordenacion y paginacion
+- Exportacion CSV
+- Login
+- Roles
+- Panel de usuarios
+- Auditoria y bitacora
+
+4. Orden recomendado para la demo
+- Login
+- Home
+- Categorias
+- Productos
+- Clientes
+- Pedidos
+- Usuarios
+- Mi cuenta
+
+5. Ideas clave que conviene decir
+- La version base cumple el EVO.
+- Despues se evoluciono hacia una version mas cercana a un proyecto real.
+- Se mantuvo Java 8 para respetar un enfoque clasico de entorno empresarial.
+
+6. Si preguntan por futuras mejoras
+- API REST
+- frontend moderno
+- historico detallado de stock o pedidos
+- seguridad mas avanzada
+- despliegue real

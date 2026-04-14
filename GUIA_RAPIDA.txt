@@ -1,0 +1,67 @@
+JH NEXUS ANIME - GUIA RAPIDA
+
+1. Abrir proyecto
+- Abrir en VS Code la carpeta:
+  C:\Users\jorge\Desktop\Programacion\otaku-center-workspace\otaku-center
+
+2. Ejecutar desde terminal
+- Primero arrancar MySQL en otra terminal:
+  & "C:\Program Files\MySQL\MySQL Server 8.4\bin\mysqld.exe" --defaults-file="C:\ProgramData\MySQL\MySQL Server 8.4\my.ini" --console
+- Despues abrir terminal en la carpeta del proyecto.
+- Ejecutar:
+  mvn spring-boot:run
+
+3. Ver el programa en el navegador
+- Abrir estas URLs:
+  http://localhost:8080/login
+  http://localhost:8080/
+  http://localhost:8080/categorias
+  http://localhost:8080/productos
+
+4. Parar el programa
+- En la terminal donde esta corriendo:
+  Ctrl + C
+
+5. Si el puerto 8080 esta ocupado
+- Cerrar la otra ejecucion que ya estuviera abierta:
+  $pidProceso = (Get-NetTCPConnection -LocalPort 8080 -State Listen).OwningProcess
+  Stop-Process -Id $pidProceso
+- Volver a lanzar:
+  mvn spring-boot:run
+
+6. Compilar sin ejecutar
+- Usar:
+  mvn package
+
+7. Base de datos
+- Base usada:
+  otaku_center
+- MySQL local en:
+  localhost:3306
+- Si la app falla con "Communications link failure" o "Connection refused":
+  MySQL no esta arrancado
+
+8. Configuracion importante
+- Archivo de configuracion:
+  src/main/resources/application.properties
+- Vistas JSP:
+  src/main/webapp/WEB-INF/views
+- Codigo Java:
+  src/main/java/com/otakucenter
+
+9. Nota util
+- Si arranca bien en VS Code, no siempre se abre el navegador solo.
+- En ese caso, abrir manualmente:
+  http://localhost:8080/login
+
+10. Usuarios del proyecto
+- Revisar:
+  USUARIOS_PROYECTO.txt
+
+11. Capturas automaticas de documentacion
+- Con la app arrancada en http://localhost:8080, ejecutar:
+  python docs\capture_screenshots.py
+- Si las credenciales activas de la base ya no coinciden con las demo, usar:
+ python docs\capture_screenshots.py --admin-user admin --admin-password "*****
+- Las imagenes se guardan en:
+  docs\img

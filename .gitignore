@@ -1,0 +1,15 @@
+target/
+.idea/
+.classpath
+.project
+.settings/
+
+*.log
+boot*.out.log
+boot*.err.log
+mysql-start*.log
+pagination-*.log
+brand-*.log
+
+*.tmp
+*.bak

@@ -1,0 +1,251 @@
+📘 MEMORIA DEL PROYECTO
+Sistema de Gestión de Tienda “Otaku Center”
+1. Introducción
+
+El presente documento describe el análisis, diseño y desarrollo de una aplicación web denominada Otaku Center, orientada a la gestión integral de una tienda de productos relacionados con el mundo del anime y manga.
+
+El sistema permitirá administrar productos, categorías, clientes y pedidos, aplicando una arquitectura en capas basada en el patrón MVC (Modelo-Vista-Controlador) y el uso de tecnologías modernas del ecosistema Java.
+
+El objetivo principal del proyecto es consolidar conocimientos en desarrollo backend con Spring Boot, persistencia con JPA/Hibernate y estructuración profesional de aplicaciones empresariales.
+
+2. Objetivos del Proyecto
+2.1 Objetivo General
+
+Desarrollar una aplicación web robusta y escalable para la gestión de una tienda otaku, aplicando buenas prácticas de ingeniería del software.
+
+2.2 Objetivos Específicos
+Implementar una arquitectura por capas (JSP, Controller, Service, DAO).
+Gestionar operaciones CRUD sobre las entidades principales.
+Integrar persistencia mediante JPA y base de datos relacional.
+Aplicar validaciones y control de lógica de negocio.
+Desarrollar una interfaz web funcional mediante JSP.
+Documentar el sistema para su publicación en GitHub.
+3. Alcance del Sistema
+
+El sistema permitirá:
+
+Gestión de productos (altas, bajas, modificaciones y consultas).
+Clasificación de productos mediante categorías.
+Gestión de clientes.
+Creación y seguimiento de pedidos.
+Control de stock.
+Visualización de información mediante interfaz web.
+
+No se incluye en esta versión:
+
+Pasarelas de pago
+Autenticación avanzada
+API REST pública
+4. Tecnologías Utilizadas
+4.1 Lenguaje de Programación
+Java 8
+4.2 Framework
+Spring Boot 2.7.18
+4.3 Persistencia
+JPA (Java Persistence API)
+Hibernate (implementación JPA)
+4.4 Base de Datos
+MySQL 8
+4.5 Vista
+JSP (Java Server Pages)
+JSTL
+4.6 Herramientas
+Visual Studio Code
+Maven
+Git / GitHub
+MySQL Workbench
+5. Arquitectura del Sistema
+
+El sistema sigue una arquitectura en capas basada en el patrón MVC:
+
+5.1 Vista (JSP)
+
+Encargada de la presentación de datos al usuario.
+
+Funciones:
+
+Formularios de entrada
+Listados de datos
+Navegación entre vistas
+5.2 Controlador (Controller)
+
+Gestiona las peticiones HTTP.
+
+Responsabilidades:
+
+Recibir solicitudes del usuario
+Invocar servicios
+Devolver vistas
+5.3 Servicio (Service)
+
+Contiene la lógica de negocio.
+
+Responsabilidades:
+
+Validaciones
+Reglas del sistema
+Coordinación entre capas
+5.4 Acceso a Datos (DAO)
+
+Gestiona la interacción con la base de datos.
+
+Responsabilidades:
+
+Operaciones CRUD
+Uso de JPA / EntityManager
+5.5 Modelo (Entity)
+
+Representa las entidades del sistema.
+
+6. Estructura del Proyecto
+com.otakucenter
+│
+├── controller
+├── service
+│   └── impl
+├── dao
+│   └── impl
+├── model
+├── config
+└── main
+Estructura web
+WEB-INF/views/
+├── productos/
+├── categorias/
+├── clientes/
+└── pedidos/
+7. Modelo de Datos
+7.1 Entidad: Categoría
+id
+nombre
+descripción
+7.2 Entidad: Producto
+id
+nombre
+descripción
+precio
+stock
+categoría
+7.3 Entidad: Cliente
+id
+nombre
+email
+teléfono
+dirección
+7.4 Entidad: Pedido
+id
+fecha
+total
+cliente
+7.5 Entidad: DetallePedido
+id
+cantidad
+precio_unitario
+subtotal
+pedido
+producto
+8. Diseño de Base de Datos
+
+Relaciones principales:
+
+Categoría 1:N Producto
+Cliente 1:N Pedido
+Pedido 1:N DetallePedido
+Producto 1:N DetallePedido
+9. Configuración del Sistema
+9.1 Archivo application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/otaku_center
+spring.datasource.username=root
+spring.datasource.password=*****
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+10. Diseño Funcional
+10.1 Gestión de Productos
+
+Permite:
+
+Crear producto
+Editar producto
+Eliminar producto
+Listar productos
+10.2 Gestión de Categorías
+
+Permite:
+
+Crear categorías
+Asignar categorías a productos
+10.3 Gestión de Clientes
+
+Permite:
+
+Registrar clientes
+Consultar clientes
+10.4 Gestión de Pedidos
+
+Permite:
+
+Crear pedidos
+Asociar productos
+Calcular totales automáticamente
+11. Flujo de Funcionamiento
+
+Ejemplo: Registro de Producto
+
+Usuario accede al formulario JSP
+Se envía la petición al Controller
+El Controller invoca el Service
+El Service valida datos
+El Service llama al DAO
+El DAO guarda en la base de datos
+Se devuelve la respuesta a la vista
+12. Patrones de Diseño Utilizados
+MVC (Modelo-Vista-Controlador)
+DAO (Data Access Object)
+Service Layer Pattern
+Inyección de dependencias (Spring)
+13. Control de Versiones
+
+El proyecto será gestionado mediante Git, con repositorio en GitHub incluyendo:
+
+Código fuente
+README.md
+Script de base de datos
+Capturas del sistema
+14. Plan de Versiones
+Versión 1.0
+CRUD de productos
+Conexión a base de datos
+Estructura base
+Versión 1.1
+Gestión de categorías
+Versión 1.2
+Gestión de clientes
+Versión 1.3
+Gestión de pedidos
+Versión 1.4
+Mejora de interfaz
+15. Conclusiones
+
+El proyecto Otaku Center permite aplicar de forma práctica conocimientos clave del desarrollo backend en Java, incluyendo arquitectura en capas, persistencia de datos y estructuración de aplicaciones empresariales.
+
+Además, constituye una base sólida para ampliaciones futuras como:
+
+API REST
+autenticación de usuarios
+sistema de pagos
+integración con frontend moderno
+16. Líneas Futuras de Desarrollo
+Migración a Spring Boot 3 (Java 17)
+Implementación de API REST
+Uso de React o Angular
+Seguridad con Spring Security
+Sistema de roles (admin/usuario)
+17. Anexo: Observaciones Técnicas
+Se utiliza Java 8 por compatibilidad.
+Spring Boot 2.7.x es la última versión compatible con Java 8.
+Se emplea JSP como tecnología de vista por simplicidad académica.
+Se recomienda evolución futura hacia arquitectura REST.

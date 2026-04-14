@@ -1,0 +1,6 @@
+# username;password;rol;activo
+admin;*****;ADMIN;true
+Sergio Delegado;Alpargata96;DELEGADO;false
+Joyux;Joyux2026A;USER;true
+
+

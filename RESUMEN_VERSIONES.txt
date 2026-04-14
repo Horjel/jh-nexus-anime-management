@@ -1,0 +1,36 @@
+JH NEXUS ANIME - RESUMEN DE VERSIONES
+
+v1.0 - Base del proyecto
+- Arquitectura MVC por capas.
+- CRUD de categorias.
+- CRUD de productos.
+- CRUD de clientes.
+- CRUD de pedidos.
+- Control de stock.
+- JSP + Spring Boot + JPA + MySQL.
+
+v1.1 - Mejora funcional
+- Dashboard de inicio.
+- Filtros de busqueda.
+- Ordenacion en listados.
+- Paginacion.
+- Fichas de detalle.
+- Exportacion CSV.
+- Mejora de interfaz y navegacion.
+
+v2.0 - Seguridad y administracion
+- Login.
+- Roles ADMIN, DELEGADO y USER.
+- Panel de usuarios.
+- Alta, bloqueo, desbloqueo y borrado de usuarios.
+- Cambio de rol.
+- Cambio de contrasena.
+- Vista Mi cuenta.
+- Auditoria simple.
+- Bitacora administrativa.
+- Registro de ultimo acceso.
+
+Estado recomendado de cierre
+- El nucleo del EVO esta cubierto.
+- Las mejoras de evolucion estan integradas.
+- El proyecto ya es presentable como practica ampliada.

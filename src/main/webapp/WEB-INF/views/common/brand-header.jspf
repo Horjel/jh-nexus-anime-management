@@ -1,0 +1,22 @@
+<div class="brand-header">
+    <a class="brand-home" href="<c:url value='/' />">
+        <img
+                class="brand-logo"
+                src="<c:url value='/assets/img/jh-nexus-anime-logo.png' />"
+                alt="Logo oficial JH Nexus Anime" />
+        <div class="brand-copy">
+            <div class="brand-topline">
+                <span class="brand-name">JH Nexus Anime</span>
+                <span class="brand-seal">Control Deck</span>
+            </div>
+            <span class="brand-subtitle">Panel de gestion</span>
+        </div>
+    </a>
+    <div class="brand-actions">
+        <a class="secondary-button" href="<c:url value='/mi-cuenta' />">Mi cuenta</a>
+        <form class="logout-form" method="post" action="<c:url value='/logout' />">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            <button class="logout-button" type="submit">Cerrar sesion</button>
+        </form>
+    </div>
+</div>

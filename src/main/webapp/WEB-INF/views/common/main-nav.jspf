@@ -1,0 +1,10 @@
+<div class="main-nav">
+    <a href="<c:url value='/' />" class="<c:if test='${navSection == "inicio"}'>active</c:if>">Inicio</a>
+    <a href="<c:url value='/categorias' />" class="<c:if test='${navSection == "categorias"}'>active</c:if>">Categorias</a>
+    <a href="<c:url value='/productos' />" class="<c:if test='${navSection == "productos"}'>active</c:if>">Productos</a>
+    <a href="<c:url value='/clientes' />" class="<c:if test='${navSection == "clientes"}'>active</c:if>">Clientes</a>
+    <a href="<c:url value='/pedidos' />" class="<c:if test='${navSection == "pedidos"}'>active</c:if>">Pedidos</a>
+    <% if (request.isUserInRole("ADMIN")) { %>
+    <a href="<c:url value='/usuarios' />" class="<c:if test='${navSection == "usuarios"}'>active</c:if>">Usuarios</a>
+    <% } %>
+</div>

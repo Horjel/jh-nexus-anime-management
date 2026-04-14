@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "OtakuCenterApplication",
+      "request": "launch",
+      "mainClass": "com.otakucenter.OtakuCenterApplication",
+      "projectName": "otaku-center"
+    }
+  ]
+}
